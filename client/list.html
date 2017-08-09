@@ -1,0 +1,10 @@
+<div id="chirp" ng-repeat="chirp in chirps">
+    <a ng-href="/#/one/{{ chirp.id }}">
+        <p>{{ chirp.user }}</p>
+        <img src="https://s-media-cache-ak0.pinimg.com/736x/5e/9a/d8/5e9ad81ba3f8b0eb622ded6faed14acc--vinyl-car-decals-yeti-decals.jpg" width="45px" height="45px">
+    </a>
+    <!--<p>User: {{ chirp.user }}</p>-->
+    <p>Message: {{ chirp.message }}</p>
+    <!--<p>Date: {{ chirp.date }}</p>-->
+    <button ng-click="deleteChirp(chirp.id)">delete this chirp</button>
+</div>
