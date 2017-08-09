@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var router = express.Router();
 var pathJSON = path.join(__dirname, 'data.json');
-var chirpsAll = require('./ctrl.proc');
+var chirpsAll = require('./chirps.proc');
 var newId = require('./shortid');
 var timeStamp = require('./moment');
 
