@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: url("https://s-media-cache-ak0.pinimg.com/736x/71/d4/1f/71d41f72fcf325ed86cbc4a62d8f4ab3--wonder-woman-tattoos-wonder-woman-logo.jpg");
+    /*background-repeat: no-repeat;*/
+    padding-top: 40px;
+    -webkit-background-size: cover;
+    background-size: cover;
+    font-family: 'Lobster', cursive;
+    font-size: 25px;
+}
+
+  /*.css-form input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+  }
+
+  .css-form input.ng-valid.ng-touched {
+    background-color: #78FA89;
+  }*/
+
+div[ng-view] {
+    width: 80%;
+    float: left;
+}
+
+.sidebar {
+    float: left;
+    text-align: center;
+    width: 20%;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: lemonchiffon;
+    border: 5px dotted deeppink;
+    border-radius: 5em;
+    opacity: 0.75;
+}
+a {
+    font-size: 1em;
+    font-weight: bolder;
+    color: deeppink;
+}
+/*
+img, wwoman {
+    margin-top: 13em;
+    border: 1px solid black;
+    border-radius: 1em;
+}*/
+.sidebar h1 {
+    color: deepskyblue;
+}
+
+#chirp {
+    text-align: center;
+    width: 50em;
+    height: 10em;
+    margin: 0 auto;
+    background-color: lemonchiffon;
+    border: 5px dotted deeppink;
+    border-radius: 5em;
+    opacity: .95;
+    margin-top: 1em;
+}
+#navbar {
+    background-color: hotpink;
+    border: 5px dotted skyblue;
+    border-radius: 12px;
+    width: 29em;
+    height: 3em;
+    /* padding: 7px; */
+    text-align: center;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+#navbar a {
+    font-size: 20px;
+    color: #337ab7;
+    text-decoration: none;
+    padding: 1em;
+}
+h1 p {
+    color: deeppink;
+    font-size: 15px;
+    text-align: center;
+}
