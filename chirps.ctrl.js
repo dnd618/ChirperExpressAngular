@@ -30,6 +30,27 @@ router.route('/')
 
         res.send(chirps);
     });
+// 2nd example
+router.route('/')
+    .get(function(req, res, next) {
+    var userid = chirp.userid;
+    var username;
+
+    users.forEach(function(user) {
+        if (user.id == userid) {
+            username = user.username;
+        } 
+    });
+        if ( username === '') {
+            username = 'anonymous';
+        } 
+    });
+
+        chirp.user = username;
+    });
+
+        res.send(chirps);
+    });
 //
 router.route('/')
     .get(function(req, res){
