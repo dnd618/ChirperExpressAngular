@@ -2,7 +2,7 @@ var fs = require('fs');
 var path = require('path');
 var jsonPath = path.join(__dirname, 'user.json');
 
-function insertUsers(user) {
+function singleUsers(user) {
     return new Promise(function(resolve, reject) {
         console.log('insert');
         fs.readFile(jsonPath, 'utf-8', function(err, file) {
@@ -38,5 +38,5 @@ function getUsers() {
 
 module.exports = {
     all: getUsers,
-    insert: insertUsers
+    single: singleUsers
 };

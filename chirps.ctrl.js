@@ -5,12 +5,32 @@ var app = express();
 var router = express.Router();
 var pathJSON = path.join(__dirname, 'data.json');
 var chirpsAll = require('./chirps.proc');
-var newId = require('./shortid');
-var timeStamp = require('./moment');
 
 
+//In class example for getting all users and chirps
+router.route('/')
+    .get(function(req, res, next) {
+        var chirps = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+        var users = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
 
+        var userMap = {};
 
+        users.forEach(function(user) {
+            userMap[user.id] = user.username;
+
+        });
+
+        chirps.forEach(function(chirp) {
+            if (!userMap.hasOwnProperty(chirp.userid.toString())) {
+                chirp.user = 'anonymous';
+            } else {
+                chirp.user = userMap[chirp.userid.toString()];
+            }
+        });
+
+        res.send(chirps);
+    });
+//
 router.route('/')
     .get(function(req, res){
         chirpsAll.all()
@@ -54,7 +74,7 @@ router.route('/')
             })
         
     })
-router.route('/one/:id')
+router.route('/user/:id')
     .get(function(req, res) {
         chirpsAll.read(req.params.id)
             .then(function(success){
@@ -65,3 +85,4 @@ router.route('/one/:id')
             })
     });
 module.exports = router;
+

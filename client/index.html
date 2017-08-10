@@ -30,13 +30,9 @@
       <input placeholder="message" ng-model="message">
       <button ng-click="postChirp()">Send my Chirp</button>
     </div>
-    <br>
-    <h1>Users</h1>
       <!--Trying to pull all users into options-->
-        <a ng-binding="/#/chirps/single/one/{{ chirp.id }}">
-            <img src="https://s-media-cache-ak0.pinimg.com/736x/5e/9a/d8/5e9ad81ba3f8b0eb622ded6faed14acc--vinyl-car-decals-yeti-decals.jpg" width="45px" height="45px">
-        </a>
-        <p>User: {{ chirp.user }}</p>
+        
+
       </div>
   <div ng-view></div>
   <script src="app.js"></script>

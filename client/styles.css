@@ -24,7 +24,7 @@ body {
   }*/
 
 div[ng-view] {
-    width: 80%;
+    width: 65%;
     float: left;
 }
 
@@ -88,4 +88,11 @@ h1 p {
     color: deeppink;
     font-size: 15px;
     text-align: center;
+}
+
+#users {
+    background-color: mintcream;
+    opacity: .75;
+    color: hotpink;
+    border-radius: 1em;
 }

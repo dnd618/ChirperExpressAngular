@@ -1,10 +1,8 @@
-<h1>Chirper Users</h1>
-<div ng-controller="UserController" >
-    <div ng-repeat="Spaghetti in users">
+<h1 style="color: deepskyblue">Chirper Users</h1>
+<div ng-controller="UserController" id="users">
+    <div ng-repeat="Spaghetti in users" >
         <p id="user">User: {{Spaghetti.user}} </p>
-        <!--<p id="userName"> {{ chirp.user }} </p>-->
+        <!-- <p id="userName"> {{ chirp.user }} </p> -->
         <hr>
-        <div id="message">Chirped: </div>
-        <div id="userMessage">{{ chirp.message }}</div>
     </div>
 </div>

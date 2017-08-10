@@ -87,7 +87,7 @@ angular.module('controllers', [])
 .controller('singleController', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {
     $http({
         method: 'GET',
-        url: $rootScope.api + '/' + $routeParams.id
+        url: $rootScope.api + '/single/one/' + id
     })
     .then(function(success) {
         $scope.chirp = success.data;
