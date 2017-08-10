@@ -3,13 +3,16 @@
 }
 
 body {
-    background: url("https://s-media-cache-ak0.pinimg.com/736x/71/d4/1f/71d41f72fcf325ed86cbc4a62d8f4ab3--wonder-woman-tattoos-wonder-woman-logo.jpg");
-    /*background-repeat: no-repeat;*/
-    padding-top: 40px;
-    -webkit-background-size: cover;
+    background-image: url("https://s-media-cache-ak0.pinimg.com/736x/71/d4/1f/71d41f72fcf325ed86cbc4a62d8f4ab3--wonder-woman-tattoos-wonder-woman-logo.jpg");
+
+    /* Set a specific height */
+    min-height: 500px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
-    font-family: 'Lobster', cursive;
-    font-size: 25px;
 }
 
   /*.css-form input.ng-invalid.ng-touched {
@@ -53,8 +56,8 @@ img, wwoman {
 
 #chirp {
     text-align: center;
-    width: 50em;
-    height: 10em;
+    width: 30em;
+    height: 15em;
     margin: 0 auto;
     background-color: lemonchiffon;
     border: 5px dotted deeppink;

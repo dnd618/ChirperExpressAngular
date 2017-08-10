@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Pacifico|Quicksand|Zilla+Slab" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-resource.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-route.js"></script>
+  </head>
+  <body>
+    <nav class="navbar" style="background-color: hotpink">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Chirper</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#/">Home</a></li>
+      <li><a href="#/chirps">Chirps</a></li>
+      <li><a href="#/user">Users</a></li>
+    </ul>
+  </div>
+</nav>
+<!--//Dropdown menu-->
+  <div class="sidebar">
+    <div ng-controller="addController" >
+    <h1>Chirp Your Thoughts..</h1>
+      <input placeholder="user" ng-model="user">
+      <input placeholder="message" ng-model="message">
+      <button ng-click="postChirp()">Send my Chirp</button>
+    </div>
+    <br>
+    <h1>Users</h1>
+      <!--Trying to pull all users into options-->
+        <a ng-binding="/#/chirps/single/one/{{ chirp.id }}">
+            <img src="https://s-media-cache-ak0.pinimg.com/736x/5e/9a/d8/5e9ad81ba3f8b0eb622ded6faed14acc--vinyl-car-decals-yeti-decals.jpg" width="45px" height="45px">
+        </a>
+        <p>User: {{ chirp.user }}</p>
+      </div>
+  <div ng-view></div>
+  <script src="app.js"></script>
+  </body>
+</html>
+

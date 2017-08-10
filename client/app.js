@@ -2,22 +2,22 @@ angular.module('myApp', ['ngRoute', 'controllers'])
 .config(function($routeProvider) {
     $routeProvider
     .when('/', {
-        templateUrl: '../client/home.html'
+        templateUrl: './home.html'
     })
     .when('/add', {
-        templateUrl: '../add.html',
+        templateUrl: './add.html',
         controller: 'addController'
     })
     .when('/single/one/:id', {
-        templateUrl: '../one.html',
+        templateUrl: './single.html',
         controller: 'singleController'
     })
-    // .when('/user/', {
-    //     templateUrl: '../user.html',
-    //     controller: 'singleUserController'
-    // })
+    .when('/user', {
+        templateUrl: './user.html',
+        controller: 'UserController'
+    })
     .when('/chirps', {
-        templateUrl: '../list.html',
+        templateUrl: './list.html',
         controller: 'listController'
     });
 })
@@ -38,7 +38,7 @@ angular.module('controllers', [])
     $scope.deleteChirp = function(id) {
         $http({
             method: 'DELETE',
-            url: $rootScope.api + '/one/' + id
+            url: $rootScope.api + '/single' + '/one/' + id
         })
         .then(function(success) {
             var chirps = $scope.chirps;
@@ -49,7 +49,7 @@ angular.module('controllers', [])
                 }
             });
 
-            $scope.chirps = chirps;
+            $scope.chirps = success.data;
         });
     };
 }])
@@ -69,7 +69,7 @@ angular.module('controllers', [])
 
             $http({
                 method: 'POST',
-                url: '$rootScope.api' + '/chirps',
+                url: $rootScope.api,
                 data: data
             })
             .then(function(success) {
@@ -78,7 +78,7 @@ angular.module('controllers', [])
                 url: $rootScope.api,
             })
                 .then(function(success) {
-                console.log(success);
+                $scope.chirp = success;
                 })
             });
         }
@@ -87,29 +87,26 @@ angular.module('controllers', [])
 .controller('singleController', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {
     $http({
         method: 'GET',
-        url: $rootScope.api + '/chirps' + $routeParams.id
+        url: $rootScope.api + '/' + $routeParams.id
     })
     .then(function(success) {
         $scope.chirp = success.data;
     });
-}]);
+}])
 
-// app.controller("SingleUserController",['$scope', '$routeParams', '$http', function($scope, $routeParams, $http){
-//       var user = $routeParams.user;
-//      console.log(user)
-//     $http.get('$rootScope.api' + '/' + user)
-//         .then(function(response){
-//             console.log(user)
-//         console.log(response)
-//         $scope.users=response.data
-//     });
+.controller('UserController',['$scope', '$routeParams', '$http', '$rootScope', function($scope, $routeParams, $http, $rootScope){
+    $http.get("http://localhost:3000/api/users")
+        .then(function(response){
+        console.log(response.data)
+        $scope.users=response.data
+    });
 
-//     $scope.removeUser=function(){
-//         console.log('delete clicked')
-//     $http.delete('$rootScope.api' + '/chirps/:id')
-//     .then(function(response){
-//         console.log(response.data)
-//     })
-//     window.location.href= "/#/list"
-//     }
+    $scope.removeUser=function(){
+        console.log('delete clicked')
+    $http.delete($rootScope.api + '/single/one/:id')
+    .then(function(response){
+        console.log(response.data)
+    })
+    window.location.href= "/#/list"
+    }
 }]);
